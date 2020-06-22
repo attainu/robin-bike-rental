@@ -1,0 +1,12 @@
+created project
+installed exprees
+installed mongodb
+created user schema
+created auth system with passport-jwt with email verification using sendgrid
+created bike schema
+created booking schema
+routes like CURD operations for bikes
+if user wants to book a bike hee needs to give bookingStart and booking End Dates
+the booking will be done with user._id, bike._id,and with remaining fields like status boookingStart, bookingEnd,time
+did some front end for login system
+
