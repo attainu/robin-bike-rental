@@ -1,15 +1,20 @@
 const User = require('../models/user');
+const Bike = require('../models/Bikes')
 const Token = require('../models/token');
 const {sendEmail} = require('../utils/index');
 const {validationResult} = require('express-validator');
 
 //sample login view
-exports.loginview = async(req,res)=>{
-    try{
-        res.render('login')
-    
-    }catch(error){res.send(error)}
-};
+exports.indexview = async(req,res)=>{
+    Bike.find((err,data)=>{
+        if(!err){
+            res.render('index',{bikes:data})
+        }
+        else{
+            console.log(err)
+        }
+    })
+}
 // register
 exports.register = async (req, res) => {
     try {
@@ -27,7 +32,7 @@ exports.register = async (req, res) => {
         await sendVerificationEmail(user_saved, req, res);
 
     } catch (error) {
-        res.status(500).json({success: false, message: error.message})
+        res.status(500).send(json({success: false, message: error.message}))
     }
 };
 
@@ -48,15 +53,12 @@ exports.login = async (req, res) => {
         if (!user.isVerified) return res.status(401).json({ type: 'not-verified', message: 'Your account has not been verified.' });
 
         // Login successful, write token, and send back user
-        /*const token = user.generateJWT()
-        res.setHeader('Authorization',  token); 
-        res.setHeader('token','Bearer ' + token);
-        //res.setHeader( 'Token', 'bearer ' +token ); 
-        res.setHeader('jwt', token);
+        const token = user.generateJWT()
+        res.setHeader('Authorization', 'Bearer '+ token);
         
         //req.setHeader({ token: user.generateJWT(), user: user}));
-        res.redirect('/api/bikes/')*/
-        res.status(200).json({token: user.generateJWT(), user: user});
+        res.redirect('/api/bikes/')
+        //res.status(200).json({token: user.generateJWT(), user: user});
     } catch (error) {
         res.status(500).json({message: error.message})
     }

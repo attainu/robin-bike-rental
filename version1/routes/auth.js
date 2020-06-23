@@ -7,11 +7,11 @@ const validate = require('../middlewares/validate');
 const { authenticate } = require('passport');
 
 const router = express.Router();
-router.get('/login',Auth.loginview);
+router.get('/',Auth.indexview);
 
-router.get('/', (req, res) => {
+/*router.get('/', (req, res) => {
     res.status(200).json({message: "You are in the Auth Endpoint. Register or Login to test Authentication."});
-});
+});*/
 
 router.post('/register', [
     check('email').isEmail().withMessage('Enter a valid email address'),

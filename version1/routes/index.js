@@ -3,10 +3,11 @@ const bike = require('./bikes.js')
 const booking = require('./bookingRoute')
 
 const authenticate = require('../middlewares/authenticate');
+const { index } = require('../controller/bikeController.js');
 
 module.exports = app => {
     app.get('/', (req, res) => {
-        res.status(200).send({ message: "Welcome to the AUTHENTICATION API. Register or Login to test Authentication."});
+        res.status(200).redirect('/api/auth');
     });
 
     app.use('/api/auth', auth);
