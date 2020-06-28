@@ -1,0 +1,38 @@
+<h1 align= "center">Select Dates to Book a Bike</h1>
+<form action="/dates" method="POST" style="text-align: center; background-color:chartreuse">
+  <label for="bookingStart">Start at:</label>
+  <input type="datetime-local" id="bookingStart" name="bookingStart" min="" max=""  required>
+  <label for="bookingEnd">End at:</label>
+  <input type="datetime-local" id="bookingEnd" name="bookingEnd" required>
+  <label for="city">City:</label>
+  <select class="selectpicker" data-style="btn-info" name="selectpicker" required>
+        <optgroup label="Select Table">
+            <option name="Hyderabad" value="Hyderabad">Hyderabad</option>
+            <option name="Bengaluru" value="Bengaluru">Bengaluru</option>
+            
+        </optgroup>
+    </select>
+  
+  <input type="submit" value="Submit">
+</form>
+<script>
+
+var today = new Date();
+console.log(today)
+var dd = today.getDate();
+var mm = today.getMonth(); 
+var yyyy = today.getFullYear();
+var hr = today.getHours()
+var mm = today.getMinutes();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+const todays = yyyy+'-'+mm+'-'+dd+'T'+hr+':'+mm;
+document.getElementById("bookingStart").setAttribute('min', todays);
+document.querySelector("#bookingStart").value = todays
+console.log(todays)
+</script>

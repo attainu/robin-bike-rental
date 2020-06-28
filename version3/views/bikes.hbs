@@ -1,0 +1,69 @@
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color:lightcyan;
+}
+</style>
+
+<body>
+<h2><i class="fas fa-plus"></i><a href="/bikes/addBike">Click Here to add Bike</a></h2>
+
+<table>
+  <tr>
+    <th>Bike Name</th>
+    <th>Model Year</th>
+    <th>Transmission</th>
+    <th>City</th>
+    <th>Price/Hr</th>
+    <th>Bike Image</th>
+    <th>To View</th>
+  </tr>
+  {{#each bikes}}
+  <tr>
+    <td>{{this.bikename}}</td>
+    <td>{{this.modelyear}}</td>
+    <td>{{this.transmission}}</td>
+    <td>{{this.city}}</td>
+    <td>{{this.price}}</td>
+    <div class="chip">
+    <td><img src="{{this.bikeimage}}" alt="{{this.name}}" width="96" height="96"></td>
+    </div>
+    <td><a href="/bikes/view/{{this._id}}">click to view</a></td>
+  </tr>
+  
+  {{/each}}
+</table>
+
+<style>
+.chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+}
+
+.chip img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+</style>
+</body>
+</html>
+

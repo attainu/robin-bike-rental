@@ -1,0 +1,63 @@
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color:lightcyan;
+}
+</style>
+
+<body>
+<h2><i class="fas fa-plus"></i><a href="/dates">Click Here to Book a Bike</a></h2>
+
+<table>
+  <tr>
+    <!--<th>Your Name</th>-->
+    <th>Booking Start</th>
+    <th>Booking End</th>
+    <th>Bike</th>
+    <th>Booked On</th>
+  </tr>
+  {{#each booking}}
+  <tr>
+    <!--<td>{{user.name}}</td>-->
+    <td>{{this.bookingStart}}</td>
+    <td>{{this.bookingEnd}}</td>
+    <td><a href="/booking/view/{{this.bike}}">Bike</a></td>
+    <td>{{this.createdOn}}</td>
+  </tr>
+  
+  {{/each}}
+</table>
+
+<style>
+.chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+}
+
+.chip img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+</style>
+</body>
+</html>
+
