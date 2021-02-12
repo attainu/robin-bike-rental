@@ -1,0 +1,20 @@
+
+<hr>
+<br>
+<h1 align= "center">Selct a Bike</h1>
+  <div class="w3-row-padding w3-padding-16">
+    
+    {{#each bikes}}
+    <div class="w3-third w3-margin-bottom">
+      <img src="{{this.bikeimage}}" alt="{{this.name}}" style="width:100%">
+      <div class="w3-container w3-white">
+        <h3>{{this.bikename}}</h3>
+        <h6>Price {{this.price}}/Hr</h6>
+        <a href="/bike/{{this._id}}" class="w3-button w3-block w3-black w3-margin-bottom">Book Bike</a>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+<hr>
+  
+  

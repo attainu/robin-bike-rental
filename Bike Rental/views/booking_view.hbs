@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.card1 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price1 {
+  color: grey;
+  font-size: 22px;
+}
+
+.card1 button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card1 button:hover {
+  opacity: 0.7;
+}
+</style>
+</head>
+<body>
+
+<h2 style="text-align:center">{{bikes.bikename}}</h2>
+{{#each bikes}}
+<div class="card1">
+  <img src="{{this.bikeimage}}" alt="{{this.bikename}}" style="width:100%">
+  <h1>{{this.bikename}}</h1>
+  <p class="price1">Price:{{this.price}}/Hr</p>
+    <h3>City: {{this.city}}</h3>
+  <p><a href="/"><button> Book a Bike</button></a></p>
+</div>
+{{/each}}
